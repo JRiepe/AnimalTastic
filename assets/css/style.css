@@ -1,0 +1,232 @@
+
+
+
+html 		{
+	background-color: steelblue;
+	/* background-image: url("../images/staircase.png"); */
+	background-repeat: no-repeat;
+	background-size: auto;
+	
+} /* end html */
+
+
+.container 	{
+	position: relative;
+	margin: 0 auto;  
+	margin-top: 100px;
+	width: 75%;
+	height: 75%;
+	background-color: black;
+	float: none;
+	/* min-height: 100%; */
+	/* height: auto !important; */
+	/* height: 100%; */
+	border-style: ridge;
+	border-width: 4px;
+	border-color: wheat;
+	
+
+}	/* end .container */      
+
+header 		{
+	
+	/* height: 50px; */
+	/* width: auto; */
+	position: static;
+	float: none;
+	text-align: center;
+	font-size: 300%;
+	font-style: italic;
+	background-color: black;
+	color: ivory;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	overflow: auto;	 
+
+}	/* end header */
+
+
+
+body 		{	
+	background-color: transparent;
+    width: auto;
+	margin: 0px auto; /* Centers whole page dammit */
+	padding: 0px;
+	height: 100%;
+	color: skyblue;
+	border-width: 0px;
+	text-align: center;
+
+}	/* end body */ 
+
+
+h1			{
+font-family: 'Times new roman', serif;
+font-size: 24px;
+color: skyblue;
+
+}
+
+
+
+
+
+
+button	{
+	color: black;
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	border-style: ridge;
+	border-color: steelblue;
+	border-width: 4px;
+	background-color: wheat;
+
+}   
+
+#countDown	{
+	margin: 0px auto;
+	position: relative;
+	float: none;
+	width: 300px;
+	height: auto;
+
+	border-style: solid;
+	border-color: transparent;
+	border-width: 4px;
+	text-align: center;
+	color: red;
+	font-size: 24px;
+
+}
+
+
+#question	{
+	margin: 0px auto;
+	position: relative;
+	float: none;
+	width: 75%;
+	height: auto;
+
+	border-style: solid;
+	border-color: transparent;
+	border-width: 2px;
+	text-align: center;
+	
+	font-size: 24px;
+
+	
+	color: ivory;
+
+}
+
+#answer	{
+	margin: 0px auto;
+	position: relative;
+	float: none;
+	width: 200px;
+	height: auto;
+
+	border-style: solid;
+	border-color: ivory;
+	border-width: 2px;
+	text-align: center;
+	color: skyblue;
+	font-size: 20px;
+}
+
+#answer:hover { 
+	margin: 0px auto;
+	position: relative;
+	float: none;
+
+
+	background-color: ivory;
+	color: black;
+	width: 200px;
+	height: auto;
+	text-align: center;
+	vertical-align: middle !important;
+
+}
+
+#chooseCharacter {
+	position: relative;
+	float: left;
+	padding-left: 0px;
+	width: 190px;
+	height: 190px;
+	margin-left: 0px;
+	background-color: white;
+	border-style: solid;
+	border-color: green;
+	color: black;
+	border-width: 3px;
+	font-size: 15px;
+	overflow: auto;
+	text-align: center;
+
+}	/* end .chooseCharacter*/
+
+#yourCharacter {
+	position: relative;
+	float: left;
+	padding-left: 0px;
+	width: 190px;
+	height: 190px;
+	margin-left: 0px;
+	background-color: white;
+	border-style: solid;
+	border-color: green;
+	color: black;
+	border-width: 3px;
+	font-size: 15px;
+	overflow: auto;
+	text-align: center;
+
+}	/* end .yourCharacter */
+
+
+
+
+
+
+
+
+
+
+
+	/* @Media Screen Tags */
+			
+/* @media only screen and (max-width: 600px)
+
+
+	{	
+		.headimage	{
+			position: relative;
+			float: left;
+			width: 150px;
+			height: 50px;
+			padding: 0px;
+			margin: 0 auto;
+					}
+
+		.container 	{
+			width: 300px;
+					}
+
+		header 		{
+			width: 248px;
+			margin: 0px auto;
+			padding: 0px;
+					}
+
+		body 		{
+			width: 300px; 
+					}
+		
+		}
+		
+	}*/
+		
