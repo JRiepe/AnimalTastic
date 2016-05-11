@@ -7,86 +7,27 @@
 
 
     function startProgram(){
-        addArray();
+        var animals = ["dog", "cat", "horse", "whale", "dolphin", "fox", "wolf", "tiger", "elephant"];
+        var newAnimal;
+        var animalImg;
+        var results;      
+        var i=0;
+      
+
+        for (i=0;i<animals.length;i++)  {
+            
+            var a = $('<button>'); // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+            a.addClass('aniButton'); // Added a class 
+            a.attr('data-name', animals[i]); // Added a data-attribute
+            a.attr('val', animals[i])
+            a.text(animals[i]); // Provided the initial button text
+            $('#buttonCol').append(a); // Added the button to the HTML
+            console.log('add button this: '+animals[i]);
+        } // end for loop
+        
+                
 
 
-
-//-----------------------------------------------------------------------------------------------
-//              Functions:
-//-----------------------------------------------------------------------------------------------
-
-
-
-//-----------------------------------------------------------------------------------------------
-// Function: addArray() - adds buttons for each animal in initial array 
-//-----------------------------------------------------------------------------------------------
-
-        function addArray() {
-              //$('#buttonCol').empty();
-              var i=0;
-              var animals = ["dog", "cat", "horse", "whale", "dolphin", "fox", "wolf", "tiger", "elephant"];
-
-              for (i=0;i<animals.length;i++)  {
-                  
-                  var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-                  a.addClass('aniButton'); // Added a class 
-                  a.attr('data-name', animals[i]); // Added a data-attribute
-                  a.text(animals[i]); // Provided the initial button text
-                  $('#buttonCol').append(a); // Added the button to the HTML
-              }  // end for loop
-        } // end function addArray()
-
-
-//-----------------------------------------------------------------------------------------------       
-// Function: addAnimal() - adds a new animal button for searching
-//-----------------------------------------------------------------------------------------------
-
-        function addNewAnimal() {
-                  var newAnimal=$('#animal-input').val().trim();
-                  var b = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-                  b.addClass('aniButton'); // Added a class 
-                  b.attr('data-name', newAnimal); // Added a data-attribute
-                  b.text(newAnimal); // Provided the initial button text
-                  $('#buttonCol').append(b); // Added the button to others
-
-        } // end addAnimal()
-
-
-//-----------------------------------------------------------------------------------------------
-// Function: displayAnimalInfo() - displays the search query results for animal selected
-//-----------------------------------------------------------------------------------------------
-
-         function displayAnimalInfo(){
-
-            var animal = $(this).attr('data-name');
-            console.log(animal);
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
-            $('#animalRow').empty();
-                // Creates AJAX call for the specific movie being 
-                $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-
-
-
-                var results = response.data;
-
-                //--------------------------------
-
-                for (var i = 0; i < results.length; i++) {
-
-                    var animalDiv = $('<div class="animalDiv">')
-                    var p = $('<p>').text('Rating: ' + results[i].rating);
-
-                    var animalImage = $('<img>').attr('src',results[i].images.fixed_height.url);
-                    animalImage.attr('data-still', results[i].images.fixed_height.url);
-                    animalImage.attr('data-animate', results[i].images.fixed_height_downsampled.url);
-                    animalImage.attr('data-state','still');
-                    $('.animalDiv').append(p).append(animalImage);
-                    $('#animalRow').prepend(animalDiv);
- 
-                   }
-                 }); 
-
-  } // end displayAnimalInfo()
 
 
 //-----------------------------------------------------------------------------------------------
@@ -94,40 +35,89 @@
 //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------               
-// click button
+// click submit to add animal
+//-----------------------------------------------------------------------------------------------
+
+              
+
+                $('#addAnimal').on('click', function(){
+                        
+                        newAnimal=$('#animal-input').val().trim();
+                      
+                        console.log('add animal this: '+newAnimal);
+                        var b = $('<button>'); // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+                        b.attr('class', 'aniButton'); // Added a class 
+                        b.attr('data-name', newAnimal); // Added a data-attribute
+                        b.text(newAnimal); // Provided the initial button text
+                        $('#buttonCol').append(b);
+
+                        return false;
+                        
+
+                }); // end $('#addAnimal').on('click', function()
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------               
+// click button to show images of 
 //-----------------------------------------------------------------------------------------------
 
                 $('.aniButton').on('click', function(){
-                        displayAnimalInfo();
-                        return false;
+                          console.log($(this).attr('data-name'));
+                          var animal = $(this).attr('data-name');
+                          console.log(animal);
+                          var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+                          $('#animalRow').empty();
+                              // Creates AJAX call for the specific movie being 
+                              $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 
-                }); // end $('.animalImage').on('click', function()
+
+
+                              results = response.data;
+
+                              //--------------------------------
+
+                              for (var i = 0; i < results.length; i++) {
+
+                                  var animalDiv = $('<div class="animalDiv">');
+                                  var p = $('<p>').text('Rating: ' + results[i].rating);
+
+                                  animalImg = $('<img>').attr('src',results[i].images.fixed_height_still.url);
+                                  
+                                  animalImg.addClass('animalImage');
+                                  animalImg.attr('data-still', results[i].images.fixed_height_still.url);
+                                  animalImg.attr('data-animate', results[i].images.fixed_height.url);
+                                  animalImg.attr('data-state','still');
+                                  animalDiv.append(p).append(animalImg);
+                                  $('#animalRow').prepend(animalDiv);
+                                  
+                                 }
+                                 //return false;
+                               }); 
+
+                            //return false;
+
+                }); // end $('.aniButton').on('click', function()
+
 
 
 
 //-----------------------------------------------------------------------------------------------               
-// click submit
-//-----------------------------------------------------------------------------------------------
-
-                $('#addAnimal').on('click', function(){
-                        addNewAnimal();
-                        return false;
-
-                }); // end $('.animalImage').on('click', function()
-
-//-----------------------------------------------------------------------------------------------               
-// click image
+// click image to animate
 //-----------------------------------------------------------------------------------------------
 
 
-                $('.animalImage').on('click', function(){
+                 $('.animalImage').on('click', function(){
                     
                         var state = $(this).attr("data-state");
-                        console.log(state);
+                        console.log('1.'+state);
+                        console.log('animal image this: '+this);
       
                         if (state == 'still') {
-                            $(this).attr("src",$(this).attr("data-animate"));
-                             $(this).attr("data-state","animate"); // n
+                            $(this).attr("src") = $(this).attr("data-animate");
+                            $(this).attr("state","animate");
                         }
 
                         else  {
@@ -136,10 +126,10 @@
                         }
                         //----------------------------------------------------
 
-                        return false;
-                });    // end $('.animalImage').on('click', function()
-                   
-
+                        //return false;
+                });    // end $('.animalImage').on('click', function() 
+    
+                                      
 
 }  //end function startProgram()
 
