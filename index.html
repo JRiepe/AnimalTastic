@@ -18,42 +18,55 @@
 
 		<!-- Header -->
 			<header>
-			Add a Giphy!
+			AnimalTastic!
 			<br>
 			</header> <!-- end <header> -->
 
-		<!-- Row 1 ... Choose your character-->
-
-			
-			<div class="row-md-4" id=theButtons></div> <!-- The Buttons -->
 		
-			<div class="row-md-4" id="theGiphs"></div> <!-- The Gyphs -->
+			<div class="row">
 
-			
-
-			
-			<br><br>
-			<div id=submitButton>
-			<button>Submit</button>
-			</div>
-			<br><br>
-
+			<!-- Col 1 ... Animals from array and add an animal!-->
+				<div class="col-md-8" id="buttonCol"></div> <!-- The Buttons -->
 		
+			
+			
+		<!-- The Submit Button Col to add an animal -->
 
+				<div class="col-md-4" id="submitCol">
+					<form id="animal-form">
+		    				<label id="submitLabel"for="animal-input">Add an Animal</label>
+		    				<br>
+		    				<input type="text" id="animal-input"><br>
+		    
+		    				<!-- Button triggers new animal to be added -->
+		    				<input id="addAnimal" type="submit" value="Submit">
+  					</form>
+					<br>
+				
+				</div>
+		<!-- end submit -->	
+			</div> <!-- End row -->
 
+		<!-- The Animal Giphs from click are placed here! -->
+			<hr>
+			<br>
+			<div class="row-md-4" id="animalRow"></div> <!-- The Gyphs -->
+
+			
+		
 		</div> <!-- end <div class="container"> -->
 
 	
 
 
 
-	<!-- Begin Script -->
-		<script>
-			$(document).ready(function(){
-				startProgram();
-			})
-		</script>
-	<!-- End Script -->		
+		<!-- Begin Script -->
+			<script>
+				$(document).ready(function(){
+					startProgram();
+				})
+			</script>
+		<!-- End Script -->		
 
 
 				
