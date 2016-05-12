@@ -72,7 +72,6 @@
                                       var results = response.data;
                                       for (var i = 0; i < results.length; i++) {
 
-                                          var animalDiv = "" // $('<div class="animalDiv">');
                                           var p = $('<p>').text('Rating: ' + results[i].rating);
 
                                           var animalImg = $('<img>').attr('src',results[i].images.fixed_height_still.url);
@@ -81,9 +80,9 @@
                                           animalImg.attr('data-still', results[i].images.fixed_height_still.url);
                                           animalImg.attr('data-animate', results[i].images.fixed_height.url);
                                           animalImg.attr('data-state','still');
-                                          
-                                          // animalDiv.append(p).append(animalImg);
-                                          $('#animalRow').append(p).append(animalImg);   // prepend(animalDiv);
+                  
+                                          $('#animalRow').append('<hr>').append(p).append('<br>').append(animalImg);
+                                            
                                           
                                       }
                                  
