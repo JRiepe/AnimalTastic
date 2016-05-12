@@ -12,13 +12,13 @@
         buttonGenerator();
 
 //-----------------------------------------------------------------------------------------------
-//         Functions buttonGenerator()
+//         Functions buttonGenerator() adds animal buttons to page
 //-----------------------------------------------------------------------------------------------
      
 
         function buttonGenerator() {
               $('#buttonCol').empty();
-              
+              console.log(animals);
               var i=0;
               for (i=0;i<animals.length;i++)  {
                   var a = $('<button>'); // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -26,7 +26,7 @@
                   a.attr('data-name', animals[i]); // Added a data-attribute
                   a.text(animals[i]); // Provided the initial button text
                   $('#buttonCol').append(a); // Added the button to the HTML
-                  console.log('add button this: '+animals[i]);
+                  
               } // end for loop
 
         }
@@ -34,15 +34,12 @@
         
                 
 
-
-
-
 //-----------------------------------------------------------------------------------------------
 //         On click Functions:
 //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------               
-// click submit to add animal to array
+// click submit to add animal to array and regenerate buttons
 //-----------------------------------------------------------------------------------------------
 
               
@@ -62,13 +59,12 @@
 
 
 //-----------------------------------------------------------------------------------------------               
-// click button to show images of chosen animal
+// click animal button to show images of chosen animal
 //-----------------------------------------------------------------------------------------------
 
                 $(document).on('click', '.aniButton', function(){
                 
                           var animal = $(this).attr('data-name');
-                          console.log(animal);
                           var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
                           $('#animalRow').empty();
                               // Creates AJAX call for the specific movie being 
@@ -101,7 +97,7 @@
 
 
 //-----------------------------------------------------------------------------------------------               
-// click image to animate
+// click on image to animate or de-animate
 //-----------------------------------------------------------------------------------------------
 
                   $(document).on('click', '.animalImage', function(){
@@ -120,8 +116,7 @@
                             $(this).attr('data-state','still');
                             
                         }
-                        //----------------------------------------------------
-
+                        
                         
                 });    // end $('.animalImage').on('click', function() 
     
