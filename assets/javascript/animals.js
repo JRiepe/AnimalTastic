@@ -19,7 +19,6 @@
             var a = $('<button>'); // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
             a.addClass('aniButton'); // Added a class 
             a.attr('data-name', animals[i]); // Added a data-attribute
-            a.attr('val', animals[i])
             a.text(animals[i]); // Provided the initial button text
             $('#buttonCol').append(a); // Added the button to the HTML
             console.log('add button this: '+animals[i]);
@@ -63,8 +62,8 @@
 //-----------------------------------------------------------------------------------------------               
 // click button to show images of 
 //-----------------------------------------------------------------------------------------------
-
-                $('.aniButton').on('click', function(){
+                $(document).on('click', '.aniButton', function(){
+                
                           console.log($(this).attr('data-name'));
                           var animal = $(this).attr('data-name');
                           console.log(animal);
@@ -81,7 +80,7 @@
 
                               for (var i = 0; i < results.length; i++) {
 
-                                  var animalDiv = $('<div class="animalDiv">');
+                                  var animalDiv = "" // $('<div class="animalDiv">');
                                   var p = $('<p>').text('Rating: ' + results[i].rating);
 
                                   animalImg = $('<img>').attr('src',results[i].images.fixed_height_still.url);
@@ -90,8 +89,9 @@
                                   animalImg.attr('data-still', results[i].images.fixed_height_still.url);
                                   animalImg.attr('data-animate', results[i].images.fixed_height.url);
                                   animalImg.attr('data-state','still');
-                                  animalDiv.append(p).append(animalImg);
-                                  $('#animalRow').prepend(animalDiv);
+                                  
+                                  // animalDiv.append(p).append(animalImg);
+                                  $('#animalRow').append(p).append(animalImg);   // prepend(animalDiv);
                                   
                                  }
                                  //return false;
@@ -108,25 +108,25 @@
 // click image to animate
 //-----------------------------------------------------------------------------------------------
 
-
-                 $('.animalImage').on('click', function(){
+                  $(document).on('click', '.animalImage', function(){
+                 
                     
                         var state = $(this).attr("data-state");
-                        console.log('1.'+state);
-                        console.log('animal image this: '+this);
-      
+                        
                         if (state == 'still') {
-                            $(this).attr("src") = $(this).attr("data-animate");
-                            $(this).attr("state","animate");
+                            $(this).attr('src',$(this).attr('data-animate'));
+                            $(this).attr('data-state','animate');
+                            
                         }
 
                         else  {
-                            $(this).attr("src",$(this).attr("data-still"));
-                            $(this).attr("data-state","still");
+                            $(this).attr('src',$(this).attr('data-still'));
+                            $(this).attr('data-state','still');
+                            
                         }
                         //----------------------------------------------------
 
-                        //return false;
+                        
                 });    // end $('.animalImage').on('click', function() 
     
                                       
