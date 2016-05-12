@@ -117,6 +117,8 @@ input	{
 #animalRow	{
 	position: relative;
 	float: left;
+	padding: 0px;
+	margin: 0px;
 	width: 100%;
 	color: wheat;
 	font-size: 20px;
@@ -124,8 +126,13 @@ input	{
 }
 
 
+
 hr {
 color: wheat;
+width: 100%;
+padding: 0px;
+margin-top:  5px;
+margin-bottom: 5px;
 }
 
 

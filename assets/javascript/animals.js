@@ -81,8 +81,7 @@
                                           animalImg.attr('data-animate', results[i].images.fixed_height.url);
                                           animalImg.attr('data-state','still');
                   
-                                          $('#animalRow').append('<hr>').append(p).append('<br>').append(animalImg);
-                                            
+                                          $('#animalRow').append('<hr>').append(p).append(animalImg);
                                           
                                       }
                                  
