@@ -2,7 +2,7 @@
 
 
 html 		{
-	background-color: steelblue;
+	background-color: black;
 	/* background-image: url("../images/staircase.png"); */
 	background-repeat: no-repeat;
 	background-size: auto;
@@ -10,20 +10,29 @@ html 		{
 } /* end html */
 
 
-.container 	{
-	position: relative;
-	margin: 0 auto;  
-	margin-top: 100px;
-	width: 75%;
-	height: 75%;
+.container {
+	margin: 0 auto;
 	background-color: black;
-	float: none;
-	/* min-height: 100%; */
-	/* height: auto !important; */
+	 height: auto !important; 
 	/* height: 100%; */
 	border-style: ridge;
 	border-width: 4px;
 	border-color: wheat;
+}
+
+
+.jumbotron 	{
+	position: relative;
+	margin: 0 auto;
+	margin-bottom: 5px;  
+	
+	height: 100% !important;
+	background-color: steelblue;
+	color: black;
+	float: none;
+	font-size: 300%;
+	font-style: italic;
+	
 	
 
 }	/* end .container */      
@@ -52,10 +61,10 @@ header 		{
 body 		{	
 	background-color: transparent;
     width: auto;
-	margin: 0px auto; /* Centers whole page dammit */
+	margin: 0px auto; /* Centers whole page darnit */
 	padding: 0px;
 	height: 100%;
-	color: steelblue;
+	color: #000000;
 	border-width: 0px;
 	text-align: center;
 
@@ -81,7 +90,7 @@ color: steelblue;
 
 button, #addAnimal {
 	color: black;
-	width: 100px;
+	min-width: 100px;
 	margin: 2px;
 	height: 30px;
 	font-size: 20px;
@@ -102,12 +111,14 @@ input	{
 }
 
 #buttonCol	{
-	position: relative;
-	float: left;
+	text-align: left;
+	/*position: relative;
+	float: left;*/
 
 }
 
 #submitCol	{
+	color: black;
 	position: relative;
 	float: left;
 	text-align: center;
@@ -143,5 +154,10 @@ button:hover, #addAnimal:hover {
 	color: wheat;
 	
 
+}
+
+#instructions {
+	color: limegreen;
+	font-size: 130%;
 }
 

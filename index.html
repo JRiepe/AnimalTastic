@@ -17,13 +17,23 @@
 		<div class="container">
 
 		<!-- Header -->
-			<header>
-			AnimalTastic!
-			<br>
-			</header> <!-- end <header> -->
+			<div class="jumbotron">
+				AnimalTastic!
+				<br>
+			</div> <!-- end <header> -->
 
-		
 			<div class="row">
+				<div class="col-md-8" id="instructions">
+					<p>Click on Button to view Giphy Photos</p>
+					<br>
+				</div>
+				<div class="col-md-4" id="instructions">
+					<p>Create a new button</p>
+					<br>
+				</div>
+			</div>
+			<div class="row">
+				
 
 			<!-- Col 1 ... Animals from array and add an animal!-->
 				<div class="col-md-8" id="buttonCol"></div> <!-- The Buttons -->
@@ -34,12 +44,12 @@
 
 				<div class="col-md-4" id="submitCol">
 					<form id="animal-form">
-		    				<label id="submitLabel"for="animal-input">Add an Animal</label>
+		    				<!-- <label id="submitLabel"for="animal-input">Add an Animal</label> -->
 		    				<br>
 		    				<input type="text" id="animal-input"><br>
 		    
 		    				<!-- Button triggers new animal to be added -->
-		    				<input id="addAnimal" type="submit" value="Submit">
+		    				<input id="addAnimal" type="submit" value="Add Animal">
   					</form>
 					<br>
 				
@@ -50,6 +60,7 @@
 		<!-- The Animal Giphs from click are placed here! -->
 			
 			<br>
+			
 			<div class="row" id="animalRow"></div> <!-- The Gyphs -->
 
 			

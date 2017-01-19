@@ -47,8 +47,11 @@
                 $('#addAnimal').on('click', function(){
                         
                         var newAnimal=$('#animal-input').val().trim();
-                        animals.push(newAnimal);
-                        buttonGenerator();
+                        if (newAnimal) {
+                            
+                            animals.push(newAnimal);
+                            buttonGenerator();
+                        }
                         return false;
                         
 
@@ -70,19 +73,23 @@
                               // Creates AJAX call for the specific movie being 
                               $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
                                       var results = response.data;
-                                      for (var i = 0; i < results.length; i++) {
+                                      if (results.length > 0) {
+                                          for (var i = 0; i < results.length; i++) {
 
-                                          var p = $('<p>').text('Rating: ' + results[i].rating);
+                                              var p = $('<p>').text('Rating: ' + results[i].rating);
 
-                                          var animalImg = $('<img>').attr('src',results[i].images.fixed_height_still.url);
-                                          
-                                          animalImg.addClass('animalImage');
-                                          animalImg.attr('data-still', results[i].images.fixed_height_still.url);
-                                          animalImg.attr('data-animate', results[i].images.fixed_height.url);
-                                          animalImg.attr('data-state','still');
-                  
-                                          $('#animalRow').append('<hr>').append(p).append(animalImg);
-                                          
+                                              var animalImg = $('<img>').attr('src',results[i].images.fixed_height_still.url);
+                                              
+                                              animalImg.addClass('animalImage');
+                                              animalImg.attr('data-still', results[i].images.fixed_height_still.url);
+                                              animalImg.attr('data-animate', results[i].images.fixed_height.url);
+                                              animalImg.attr('data-state','still');
+                      
+                                              $('#animalRow').append('<hr>').append(p).append(animalImg);
+                                              
+                                          }
+                                      } else {
+                                        $('#animalRow').append('<h3>No Results Found, try again!');
                                       }
                                  
                               }); 
