@@ -18,7 +18,6 @@
 
         function buttonGenerator() {
               $('#buttonCol').empty();
-              console.log(animals);
               var i=0;
               for (i=0;i<animals.length;i++)  {
                   var a = $('<button>'); // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -69,10 +68,12 @@
                 
                           var animal = $(this).attr('data-name');
                           var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&rating=pg&api_key=dc6zaTOxFJmzC&limit=10";
+                          
                           $('#animalRow').empty();
                               // Creates AJAX call for the specific movie being 
                               $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
                                       var results = response.data;
+                                      
                                       if (results.length > 0) {
                                           for (var i = 0; i < results.length; i++) {
 
